@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Disease Prediction | AI-Powered Diagnosis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🧠</div>
+                <div class="logo-text">
+                    <h1>Alzheimer's AI</h1>
+                    <p>Advanced Disease Prediction</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-value">94.19%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">2,149</span>
+                    <span class="stat-label">Patients Analyzed</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introduction Card -->
+            <div class="intro-card glass-card">
+                <h2>AI-Powered Alzheimer's Disease Prediction</h2>
+                <p>Our advanced machine learning model analyzes 35+ health indicators to predict Alzheimer's disease risk with 94% accuracy. Enter patient information below to receive an instant assessment.</p>
+            </div>
+
+            <!-- Form and Results Container -->
+            <div class="content-grid">
+                <!-- Patient Information Form -->
+                <div class="form-section glass-card">
+                    <h3 class="section-title">Patient Information</h3>
+                    
+                    <form id="predictionForm">
+                        <!-- Demographics Section -->
+                        <div class="form-group-section">
+                            <h4 class="subsection-title">📋 Demographics</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="Age">Age</label>
+                                    <input type="number" id="Age" name="Age" min="60" max="90" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Gender">Gender</label>
+                                    <select id="Gender" name="Gender" required>
+                                        <option value="">Select</option>
+                                        <option value="0">Male</option>
+                                        <option value="1">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="Ethnicity">Ethnicity</label>
+                                    <select id="Ethnicity" name="Ethnicity" required>
+                                        <option value="">Select</option>
+                                        <option value="0">Caucasian</option>
+                                        <option value="1">African American</option>
+                                        <option value="2">Asian</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="EducationLevel">Education Level</label>
+                                    <select id="EducationLevel" name="EducationLevel" required>
+                                        <option value="">Select</option>
+                                        <option value="0">None</option>
+                                        <option value="1">High School</option>
+                                        <option value="2">Bachelor's</option>
+                                        <option value="3">Higher</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lifestyle Factors -->
+                        <div class="form-group-section">
+                            <h4 class="subsection-title">🏃 Lifestyle Factors</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="BMI">BMI</label>
+                                    <input type="number" id="BMI" name="BMI" step="0.1" min="15" max="40" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Smoking">Smoking</label>
+                                    <select id="Smoking" name="Smoking" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="AlcoholConsumption">Alcohol Consumption (drinks/week)</label>
+                                    <input type="number" id="AlcoholConsumption" name="AlcoholConsumption" min="0" max="20" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="PhysicalActivity">Physical Activity (hours/week)</label>
+                                    <input type="number" id="PhysicalActivity" name="PhysicalActivity" step="0.1" min="0" max="20" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="DietQuality">Diet Quality (0-10)</label>
+                                    <input type="number" id="DietQuality" name="DietQuality" step="0.1" min="0" max="10" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="SleepQuality">Sleep Quality (0-10)</label>
+                                    <input type="number" id="SleepQuality" name="SleepQuality" step="0.1" min="0" max="10" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medical History -->
+                        <div class="form-group-section">
+                            <h4 class="subsection-title">🏥 Medical History</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="FamilyHistoryAlzheimers">Family History of Alzheimer's</label>
+                                    <select id="FamilyHistoryAlzheimers" name="FamilyHistoryAlzheimers" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="CardiovascularDisease">Cardiovascular Disease</label>
+                                    <select id="CardiovascularDisease" name="CardiovascularDisease" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="Diabetes">Diabetes</label>
+                                    <select id="Diabetes" name="Diabetes" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Depression">Depression</label>
+                                    <select id="Depression" name="Depression" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="HeadInjury">Head Injury</label>
+                                    <select id="HeadInjury" name="HeadInjury" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Hypertension">Hypertension</label>
+                                    <select id="Hypertension" name="Hypertension" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vital Signs -->
+                        <div class="form-group-section">
+                            <h4 class="subsection-title">💓 Vital Signs & Lab Results</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="SystolicBP">Systolic BP (mmHg)</label>
+                                    <input type="number" id="SystolicBP" name="SystolicBP" min="90" max="200" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="DiastolicBP">Diastolic BP (mmHg)</label>
+                                    <input type="number" id="DiastolicBP" name="DiastolicBP" min="60" max="130" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="CholesterolTotal">Total Cholesterol (mg/dL)</label>
+                                    <input type="number" id="CholesterolTotal" name="CholesterolTotal" step="0.1" min="150" max="300" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="CholesterolLDL">LDL Cholesterol (mg/dL)</label>
+                                    <input type="number" id="CholesterolLDL" name="CholesterolLDL" step="0.1" min="50" max="200" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="CholesterolHDL">HDL Cholesterol (mg/dL)</label>
+                                    <input type="number" id="CholesterolHDL" name="CholesterolHDL" step="0.1" min="20" max="100" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="CholesterolTriglycerides">Triglycerides (mg/dL)</label>
+                                    <input type="number" id="CholesterolTriglycerides" name="CholesterolTriglycerides" step="0.1" min="50" max="400" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cognitive Assessment -->
+                        <div class="form-group-section">
+                            <h4 class="subsection-title">🧩 Cognitive Assessment</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="MMSE">MMSE Score (0-30)</label>
+                                    <input type="number" id="MMSE" name="MMSE" step="0.1" min="0" max="30" required>
+                                    <small>Mini-Mental State Examination</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="FunctionalAssessment">Functional Assessment (0-10)</label>
+                                    <input type="number" id="FunctionalAssessment" name="FunctionalAssessment" step="0.1" min="0" max="10" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ADL">Activities of Daily Living (0-10)</label>
+                                    <input type="number" id="ADL" name="ADL" step="0.1" min="0" max="10" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="MemoryComplaints">Memory Complaints</label>
+                                    <select id="MemoryComplaints" name="MemoryComplaints" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="BehavioralProblems">Behavioral Problems</label>
+                                    <select id="BehavioralProblems" name="BehavioralProblems" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Symptoms -->
+                        <div class="form-group-section">
+                            <h4 class="subsection-title">⚠️ Symptoms</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="Confusion">Confusion</label>
+                                    <select id="Confusion" name="Confusion" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Disorientation">Disorientation</label>
+                                    <select id="Disorientation" name="Disorientation" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="PersonalityChanges">Personality Changes</label>
+                                    <select id="PersonalityChanges" name="PersonalityChanges" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="DifficultyCompletingTasks">Difficulty Completing Tasks</label>
+                                    <select id="DifficultyCompletingTasks" name="DifficultyCompletingTasks" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="Forgetfulness">Forgetfulness</label>
+                                    <select id="Forgetfulness" name="Forgetfulness" required>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Analyze Patient Data</span>
+                            <span class="btn-icon">🔬</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section glass-card" id="resultsSection" style="display: none;">
+                    <h3 class="section-title">Prediction Results</h3>
+                    
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loadingState">
+                        <div class="loader"></div>
+                        <p>Analyzing patient data...</p>
+                    </div>
+
+                    <!-- Results Content -->
+                    <div class="results-content" id="resultsContent" style="display: none;">
+                        <!-- Diagnosis Card -->
+                        <div class="diagnosis-card" id="diagnosisCard">
+                            <div class="diagnosis-icon" id="diagnosisIcon">🧠</div>
+                            <h4 class="diagnosis-label" id="diagnosisLabel">Diagnosis</h4>
+                            <p class="diagnosis-text" id="diagnosisText">-</p>
+                            <p class="risk-level" id="riskLevel">-</p>
+                        </div>
+
+                        <!-- Confidence Gauge -->
+                        <div class="confidence-section">
+                            <h5>Prediction Confidence</h5>
+                            <div class="gauge-container">
+                                <svg class="gauge" viewBox="0 0 200 120">
+                                    <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#2a2a3e" stroke-width="20" stroke-linecap="round"/>
+                                    <path class="gauge-fill" id="gaugeFill" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#00ff88" stroke-width="20" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
+                                </svg>
+                                <div class="gauge-value" id="gaugeValue">0%</div>
+                            </div>
+                        </div>
+
+                        <!-- Probabilities -->
+                        <div class="probabilities">
+                            <div class="prob-item">
+                                <span class="prob-label">No Alzheimer's</span>
+                                <div class="prob-bar">
+                                    <div class="prob-fill prob-negative" id="probNegative" style="width: 0%"></div>
+                                </div>
+                                <span class="prob-value" id="probNegativeValue">0%</span>
+                            </div>
+                            <div class="prob-item">
+                                <span class="prob-label">Alzheimer's Disease</span>
+                                <div class="prob-bar">
+                                    <div class="prob-fill prob-positive" id="probPositive" style="width: 0%"></div>
+                                </div>
+                                <span class="prob-value" id="probPositiveValue">0%</span>
+                            </div>
+                        </div>
+
+                        <!-- Recommendations -->
+                        <div class="recommendations" id="recommendationsSection">
+                            <h5>Recommendations</h5>
+                            <ul id="recommendationsList"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Alzheimer's AI Prediction System | Powered by Machine Learning</p>
+            <p class="disclaimer">⚠️ This tool is for research purposes only. Always consult healthcare professionals for medical diagnosis.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
