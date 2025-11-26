@@ -365,7 +365,3 @@ For questions or feedback, please open an issue in the repository.
 This tool is for **research and educational purposes only**. It should not be used as a substitute for professional medical diagnosis. Always consult qualified healthcare professionals for medical advice.
 
 ---
-
-**Made with ❤️ and 🤖 Machine Learning**
-
-*Last Updated: November 25, 2025*
