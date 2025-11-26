@@ -1,11 +1,3 @@
-# 🧠 Alzheimer's Disease Prediction - AI-Powered ML System
-
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![ML](https://img.shields.io/badge/Machine%20Learning-Scikit--learn-orange.svg)
-![Accuracy](https://img.shields.io/badge/Accuracy-95.12%25-success.svg)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-
 ## 📋 Project Overview
 
 A complete end-to-end machine learning system for predicting Alzheimer's disease using patient health data. Features hyperparameter-tuned models achieving **95.12% accuracy**, a modern web application with premium UI, and comprehensive data analysis pipelines.
